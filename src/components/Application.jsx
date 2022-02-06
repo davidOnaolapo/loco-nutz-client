@@ -32,7 +32,8 @@ const useStyles = makeStyles((theme) => ({
     justifyContent:"space-between",
     alignItems:"center",
     marginTop:"0.2em",
-    paddingRight:"1.7em"
+    paddingRight:"1.7em",
+    width:"100%"
   },
   toolBarPhone: {
     display: "flex",
@@ -89,6 +90,7 @@ export default function Application() {
   // const [ mintAddy, setShowMintAddy] = useState("Mint Address");
 
   const {
+    submitAddress
   } = useApplicationData();
   
   // const handleMintAddy = () => {
@@ -110,11 +112,11 @@ export default function Application() {
           <div className={!phone ? classes.container : classes.containerPhone}>
             <div className={!phone ? classes.toolBar : classes.toolBarPhone}>
               <img className={ phone ? classes.ripPhone : classes.rip} src="images/logo.png"/> 
-              <RegisterAddress/>       
+              <RegisterAddress submitAddress={submitAddress}/>       
             </div>         
             <Switch>
               <Route exact path='/'>
-                <Locos/>
+                <Locos />
               </Route>
             </Switch> 
           </div>             

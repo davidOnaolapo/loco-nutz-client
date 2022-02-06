@@ -13,10 +13,10 @@ export default function AddressInput({ address, setAddress, handleSubmitAddress 
 
   const handleIt = event => {
 		if(event.keyCode === 13){
-      handleSubmitAddress()
+      handleSubmitAddress(address)
     }
 	}
-
+ 
   return(
     <input
       className={ !phone ? "input-64" : "input-65" }

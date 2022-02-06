@@ -1,29 +1,37 @@
 import {useState, useEffect} from "react";
-import { BASE_URL, API_KEY, END_POINT } from "../helpers/constants";
 import axios from 'axios';
 
 import { API_URL } from "../helpers/constants"
 
-const LOADING = "LOADING"
 
 export default function useApplicationData () { 
-  const [nasaInfo, setNasaInfo] = useState({});
+  const [users, setUsers] = useState("");
+  const [address, setAddress] = useState("");
   
-  const fetchNasaInfo = async () => {
+  const fetchAllAddresses = async () => {
     try {
-      const { data } = await axios.get(`${BASE_URL}/${END_POINT}&api_key=${API_KEY}`)
-      setNasaInfo(data)    
+      const { data } = await axios.get(`${API_URL}`)
+      setAddress(data)    
     } catch(err) {
       console.log(err);
     }
   }
 
-  useEffect(() => { 
-    fetchNasaInfo()
-  },[])
+  const submitAddress = async(address) => {
+    try {
+      const { data } = await axios.post(`${API_URL}`, {address})
+      return(data)
+    } catch(err) {
+      console.log(err);
+    }
+  }
+  // useEffect(() => { 
+  //   fetchNasaInfo()
+  // },[])
 
   return {
-    nasaInfo,
-    setNasaInfo
+    address,
+    setAddress,
+    submitAddress
   }
 }

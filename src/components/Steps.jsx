@@ -29,7 +29,7 @@ export default function Edition(props) {
   const {
   } = props;
   return (    
-    <div className={classes.locos} id="updates" data-aos= "fade-left" data-aos-delay="600">
+    <div style={{display:"flex", flexDirection:"column", alignItems:"center", marginTop:"2em"}} id="updates" data-aos= "fade-left" data-aos-delay="600">
       <div  className={phone ? "titlePhone" : "title"}> 
         Steps to Mint Your Loconutz + Cocoloco NFTs
       </div>

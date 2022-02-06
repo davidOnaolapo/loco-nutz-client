@@ -18,7 +18,7 @@ const useStyles = makeStyles({
   },
 });
 
-const RegisterAdderss = ({}) => {
+const RegisterAdderss = ({ submitAddress }) => {
   const classes = useStyles();
   const theme = useTheme();
   const phone = useMediaQuery(theme.breakpoints.down("xs"));
@@ -33,17 +33,31 @@ const RegisterAdderss = ({}) => {
     }
   }
 
-  const handleSubmitAddress = () => {
+  const handleSubmitAddress = async(address) => {
     setRegisterMode(LOADING)
-    setTimeout (() => {
+    setTimeout (async() => {
+      try {
+        await submitAddress(address)
+      } catch(err) {
+        console.log(err)
+      }
       setRegisterMode(SUCCESS_MODE)
     }, 4000)
   }
 
   return (
     <>
-      { (registerMode === ENTER_ADDRESS_MODE) && <AddressInput handleSubmitAddress={handleSubmitAddress}/> }
-      { (registerMode === REGISTER_TEXT_MODE) && <RegisterText isRegistered="no" handleRegisterMode={handleRegisterMode}/> }
+      { (registerMode === ENTER_ADDRESS_MODE) && 
+        <AddressInput 
+          address={address} setAddress={setAddress}
+          handleSubmitAddress={handleSubmitAddress}
+        /> 
+      }
+      { (registerMode === REGISTER_TEXT_MODE) && 
+        <RegisterText isRegistered="no" 
+          handleRegisterMode={handleRegisterMode}
+        /> 
+      }
       { (registerMode === SUCCESS_MODE) && <RegisterText isRegistered="yes" /> }
       { (registerMode === LOADING) && <RegisterText isRegistered="load"/> }
     </>
