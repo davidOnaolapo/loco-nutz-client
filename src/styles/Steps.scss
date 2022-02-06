@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Ephesis&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;1,400&display=swap");
+
+.updateText {
+  font-size: 2em;
+  font-weight: 400;
+  font-family: "calibri", cursive;
+  color: white;
+}
+
+.mb {
+  margin-bottom: 0.6em;
+}
+
+// ul {
+//   padding-left: 2rem;
+//   list-style-type: none;
+// }
+
+// ul li {
+//   padding-left: 2rem;
+//   background-image: url(http://www.clker.com/cliparts/z/c/I/n/6/t/purple-star-md.png);
+//   background-position: 1 0;
+//   background-size: 1.6rem 1.6rem;
+//   background-repeat: no-repeat;
+// }
+
+ul {
+  list-style: none;
+} /* Remove default bullets */
+
+li::before {
+  content: "\261B"; /* Unicode bullet symbol */
+  color: #9877ad; /* Bullet color */
+
+  /* Optional tweaks */
+  font-weight: bold;
+  padding-right: 10px;
+}
+
+li {
+  text-indent: -1.5em;
+}
+
+.title {
+  font-family: "calibri", cursive;
+  padding-left: 2rem;
+  color: #e0d8e9;
+  font-size: 2.6em;
+  font-weight: 700;
+  font-style: italic;
+  color: rgb(228, 222, 231);
+}
+
+.titlePhone {
+  font-family: "calibri", cursive;
+  padding-left: 3rem;
+  color: #e0d8e9;
+  font-size: 2.6em;
+  font-weight: 700;
+  font-style: italic;
+  color: rgb(228, 222, 231);
+}
+
+.note {
+  font-family: "calibri", cursive;
+  padding-left: 2rem;
+  color: #e0d8e9;
+  font-size: 2em;
+  font-weight: 700;
+  font-style: italic;
+  color: rgb(228, 222, 231);
+}
