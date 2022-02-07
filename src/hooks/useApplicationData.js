@@ -1,33 +1,20 @@
-import {useState, useEffect} from "react";
+import {useState } from "react";
 import axios from 'axios';
 
 import { API_URL } from "../helpers/constants"
 
 
 export default function useApplicationData () { 
-  const [users, setUsers] = useState("");
   const [address, setAddress] = useState("");
-  
-  const fetchAllAddresses = async () => {
-    try {
-      const { data } = await axios.get(`${API_URL}`)
-      setAddress(data)    
-    } catch(err) {
-      console.log(err);
-    }
-  }
-
+ 
   const submitAddress = async(address) => {
     try {
-      const { data } = await axios.post(`${API_URL}`, {address})
-      return(data)
+      const { status } = await axios.post(`${API_URL}`, {address})
+      return(status)
     } catch(err) {
-      console.log(err);
+      return err.response
     }
   }
-  // useEffect(() => { 
-  //   fetchNasaInfo()
-  // },[])
 
   return {
     address,

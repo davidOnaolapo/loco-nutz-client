@@ -6,12 +6,14 @@ import Button from '@mui/material/Button';
 
 import RegisterText from "./RegisterText"
 import AddressInput from "./AddressInput"
+import { addressValid } from '../helpers/errorCheck';
 
 const REGISTER_TEXT_MODE = "register_text"
 const ENTER_ADDRESS_MODE = "enter_address_mode"
 const LOADING = "loading"
 const SUCCESS_MODE = "success_mode"
-const ERROR_MODE = "error_mode"
+const ERROR1_MODE = "error1_mode"
+const ERROR2_MODE = "error2_mode"
 
 const useStyles = makeStyles({
   root: {
@@ -36,13 +38,19 @@ const RegisterAdderss = ({ submitAddress }) => {
   const handleSubmitAddress = async(address) => {
     setRegisterMode(LOADING)
     setTimeout (async() => {
-      try {
-        await submitAddress(address)
-      } catch(err) {
-        console.log(err)
+      if(addressValid(address)){
+        const successCheck = await submitAddress(address)
+        if(successCheck.status === 406) {
+          setAddress("")
+          setRegisterMode(ERROR2_MODE)
+        } else {
+          setRegisterMode(SUCCESS_MODE)
+        }
+      } else {
+        setAddress("")
+        setRegisterMode(ERROR1_MODE)
       }
-      setRegisterMode(SUCCESS_MODE)
-    }, 4000)
+    }, 2000)
   }
 
   return (
@@ -51,6 +59,7 @@ const RegisterAdderss = ({ submitAddress }) => {
         <AddressInput 
           address={address} setAddress={setAddress}
           handleSubmitAddress={handleSubmitAddress}
+          placeholder="Enter Your Address"
         /> 
       }
       { (registerMode === REGISTER_TEXT_MODE) && 
@@ -60,6 +69,16 @@ const RegisterAdderss = ({ submitAddress }) => {
       }
       { (registerMode === SUCCESS_MODE) && <RegisterText isRegistered="yes" /> }
       { (registerMode === LOADING) && <RegisterText isRegistered="load"/> }
+      { (registerMode === ERROR1_MODE) && <AddressInput 
+          address={address} setAddress={setAddress}
+          handleSubmitAddress={handleSubmitAddress}
+          placeholder="The Address is Invalid"
+        />  }
+      { (registerMode === ERROR2_MODE) && <AddressInput 
+          address={address} setAddress={setAddress}
+          handleSubmitAddress={handleSubmitAddress}
+          placeholder="Address Already Registered"
+        />  }
     </>
   );
 };

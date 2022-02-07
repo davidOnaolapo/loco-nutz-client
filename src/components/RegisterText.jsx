@@ -10,7 +10,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function RegisterText({ handleRegisterMode, isRegistered, loading }) {
+export default function RegisterText({ handleRegisterMode, isRegistered  }) {
   const classes = useStyles();
   const theme = useTheme();
   const phone = useMediaQuery(theme.breakpoints.down("xs"));
@@ -26,8 +26,10 @@ export default function RegisterText({ handleRegisterMode, isRegistered, loading
     <button className={ !phone ? "button-64" : "button-65"} role="button" onClick={handleRegisterAttempt}>
       <span className="text">
         { (isRegistered ==="no") && <div> Register Your Address For Minting </div> }
-        { (isRegistered ==="yes") && <div> Success! The Address is now Registered  </div> }
+        { (isRegistered ==="yes") && <div style={{color:"#65FF00"}}> Success! The Address is now Registered  </div> }
         { (isRegistered ==="load") && <img src="images/loading.gif" style={{height:"20px", width:"30px"}}/> }
+        { (isRegistered ==="err1") && <div style={{color:"red"}}> The address must begin with "addr1"  </div> }
+        { (isRegistered ==="err2") && <div style={{color:"red"}}> This address is already registered </div> }
       </span>
     </button> 
   );
