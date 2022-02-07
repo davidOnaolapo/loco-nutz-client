@@ -14,6 +14,7 @@ const LOADING = "loading"
 const SUCCESS_MODE = "success_mode"
 const ERROR1_MODE = "error1_mode"
 const ERROR2_MODE = "error2_mode"
+const ERROR3_MODE = "error3_mode"
 
 const useStyles = makeStyles({
   root: {
@@ -43,12 +44,20 @@ const RegisterAdderss = ({ submitAddress }) => {
         if(successCheck.status === 406) {
           setAddress("")
           setRegisterMode(ERROR2_MODE)
-        } else {
+          return
+        } else if(successCheck === 200) {
+          console.log("Successful addition")
           setRegisterMode(SUCCESS_MODE)
-        }
+          return
+        } else {
+          setAddress("")
+          setRegisterMode(ERROR3_MODE)
+          return
+        } 
       } else {
         setAddress("")
         setRegisterMode(ERROR1_MODE)
+        return
       }
     }, 2000)
   }
@@ -79,6 +88,11 @@ const RegisterAdderss = ({ submitAddress }) => {
           handleSubmitAddress={handleSubmitAddress}
           placeholder="Address Already Registered"
         />  }
+      { (registerMode === ERROR3_MODE) && <AddressInput 
+        address={address} setAddress={setAddress}
+        handleSubmitAddress={handleSubmitAddress}
+        placeholder="Internal Server Error"
+      />  }
     </>
   );
 };
