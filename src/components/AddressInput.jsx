@@ -26,6 +26,13 @@ export default function AddressInput({ address, setAddress, handleSubmitAddress,
       handleSubmitAddress(address)
     }
 	}
+
+  const validateInput = (e) => {
+    const re = /[A-Za-z0-9]+/g;
+    if (!re.test(e.key)) {
+      e.preventDefault();
+    }
+  }
  
   return(
     <div style={{display:"flex", flexDirection:"column", justifyContent:"space-between"}}>
@@ -44,6 +51,7 @@ export default function AddressInput({ address, setAddress, handleSubmitAddress,
         onChange={handleAddressChange}
         autoComplete="off"
         onKeyDown={handleIt}
+        onKeyPress={validateInput}
       />  
     </div>
   )
