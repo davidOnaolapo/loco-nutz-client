@@ -24,7 +24,7 @@ export default function RegisterText({ handleRegisterMode, isRegistered  }) {
       style={{color:"red"}}
     >
       {() => (
-        <div style={{color:"red", display:"flex", justifyContent:center}}>
+        <div style={{color:"red", display:"flex", justifyContent:"center"}}>
           <div> 
             <Timer.Days/> 
             <div> days </div>

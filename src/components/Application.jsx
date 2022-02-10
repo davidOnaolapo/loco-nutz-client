@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { HashLink as Link } from 'react-router-hash-link';
+import Timer from "./Timer"
 
 import { makeStyles } from "@mui/styles";
 import { useTheme } from "@material-ui/core/styles";
@@ -111,8 +112,11 @@ export default function Application() {
         <main className="layout">  
           <div className={!phone ? classes.container : classes.containerPhone}>
             <div className={!phone ? classes.toolBar : classes.toolBarPhone}>
-              <img className={ phone ? classes.ripPhone : classes.rip} src="images/logo.png"/> 
-              <RegisterAddress submitAddress={submitAddress}/>       
+              <img className={ phone ? classes.ripPhone : classes.rip} src="images/logo.png"/>
+              <div style={{display:"flex", flexDirection:"column"}}>
+                <RegisterAddress submitAddress={submitAddress}/>
+                <Timer />
+              </div>       
             </div>         
             <Switch>
               <Route exact path='/'>
