@@ -45,6 +45,6 @@ export default function TheTimer({ initialTime  }) {
       </Timer>
     )
   } else {
-    return (<div>...Loading</div>)
+    return (<div className= {!phone? "load" : "loadPhone"}> <img src="images/loading.gif" style={{width:"30px"}}/></div>)
   }
 }
