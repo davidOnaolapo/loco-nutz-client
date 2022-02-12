@@ -91,7 +91,8 @@ export default function Application() {
   // const [ mintAddy, setShowMintAddy] = useState("Mint Address");
 
   const {
-    submitAddress
+    submitAddress,
+    initialTime
   } = useApplicationData();
   
   // const handleMintAddy = () => {
@@ -115,9 +116,9 @@ export default function Application() {
               <img className={ phone ? classes.ripPhone : classes.rip} src="images/logo.png"/>
               <div style={{display:"flex", flexDirection:"column"}}>
                 <RegisterAddress submitAddress={submitAddress}/>
-                <Timer />
               </div>       
-            </div>         
+            </div> 
+            <Timer initialTime={initialTime}/>        
             <Switch>
               <Route exact path='/'>
                 <Locos />
