@@ -63,36 +63,41 @@ const RegisterAdderss = ({ submitAddress }) => {
   }
 
   return (
+    // <>
+    //   { (registerMode === ENTER_ADDRESS_MODE) && 
+    //     <AddressInput 
+    //       address={address} setAddress={setAddress}
+    //       handleSubmitAddress={handleSubmitAddress}
+    //       placeholder="Enter Your Address"
+    //     /> 
+    //   }
+    //   { (registerMode === REGISTER_TEXT_MODE) && 
+    //     <RegisterText isRegistered="no" 
+    //       handleRegisterMode={handleRegisterMode}
+    //     /> 
+    //   }
+    //   { (registerMode === SUCCESS_MODE) && <RegisterText isRegistered="yes" /> }
+    //   { (registerMode === LOADING) && <RegisterText isRegistered="load"/> }
+    //   { (registerMode === ERROR1_MODE) && <AddressInput 
+    //       address={address} setAddress={setAddress}
+    //       handleSubmitAddress={handleSubmitAddress}
+    //       placeholder="The Address is Invalid"
+    //     />  }
+    //   { (registerMode === ERROR2_MODE) && <AddressInput 
+    //       address={address} setAddress={setAddress}
+    //       handleSubmitAddress={handleSubmitAddress}
+    //       placeholder="Address Already Registered"
+    //     />  }
+    //   { (registerMode === ERROR3_MODE) && <AddressInput 
+    //     address={address} setAddress={setAddress}
+    //     handleSubmitAddress={handleSubmitAddress}
+    //     placeholder="Internal Server Error"
+    //   />  }
+    // </>
     <>
-      { (registerMode === ENTER_ADDRESS_MODE) && 
-        <AddressInput 
-          address={address} setAddress={setAddress}
-          handleSubmitAddress={handleSubmitAddress}
-          placeholder="Enter Your Address"
-        /> 
-      }
-      { (registerMode === REGISTER_TEXT_MODE) && 
-        <RegisterText isRegistered="no" 
-          handleRegisterMode={handleRegisterMode}
-        /> 
-      }
-      { (registerMode === SUCCESS_MODE) && <RegisterText isRegistered="yes" /> }
-      { (registerMode === LOADING) && <RegisterText isRegistered="load"/> }
-      { (registerMode === ERROR1_MODE) && <AddressInput 
-          address={address} setAddress={setAddress}
-          handleSubmitAddress={handleSubmitAddress}
-          placeholder="The Address is Invalid"
-        />  }
-      { (registerMode === ERROR2_MODE) && <AddressInput 
-          address={address} setAddress={setAddress}
-          handleSubmitAddress={handleSubmitAddress}
-          placeholder="Address Already Registered"
-        />  }
-      { (registerMode === ERROR3_MODE) && <AddressInput 
-        address={address} setAddress={setAddress}
-        handleSubmitAddress={handleSubmitAddress}
-        placeholder="Internal Server Error"
-      />  }
+      <RegisterText isRegistered="no" 
+        handleRegisterMode={handleRegisterMode}
+      /> 
     </>
   );
 };
