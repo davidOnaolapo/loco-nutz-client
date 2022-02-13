@@ -17,7 +17,7 @@ export default function useApplicationData () {
       const { data } = await axios.get(`${API_URL}/countdown_router`)
       console.log(data.msg.elapsedTime)
       setTimeout(() => {
-        setinitialTime(8100000 - data.msg.elapsedTime)
+        setinitialTime(3600000 - data.msg.elapsedTime)
       }, 2000)   
     } catch(err) {
       console.log(err.response)
