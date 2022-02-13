@@ -17,34 +17,30 @@ export default function TheTimer({ initialTime  }) {
   const phone = useMediaQuery(theme.breakpoints.down("xs"));
   const ipad = useMediaQuery(theme.breakpoints.down("md"));
 
-  if(initialTime) {
-    return (
-      <Timer
-        initialTime={initialTime}
-        direction="backward"
-      >
-        {() => (
-          <div className= {!phone? "clock" : "clockPhone"}>
-            <div className="timer"> 
-              <Timer.Days/> 
-              :
-            </div>
-            <div className="timer"> 
-              <Timer.Hours/>
-              : 
-            </div>
-            <div className="timer"> 
-              <Timer.Minutes/> 
-              :
-            </div>
-            <div className="timer"> 
-              <Timer.Seconds/> 
-            </div>
+  return (
+    <Timer
+      initialTime={0}
+      direction="backward"
+    >
+      {() => (
+        <div className= {!phone? "clock" : "clockPhone"}>
+          <div className="timer"> 
+            <Timer.Days/> 
+            :
           </div>
-        )}
-      </Timer>
-    )
-  } else {
-    return (<div className= {!phone? "load" : "loadPhone"}> <img src="images/loading.gif" style={{width:"30px"}}/></div>)
-  }
+          <div className="timer"> 
+            <Timer.Hours/>
+            : 
+          </div>
+          <div className="timer"> 
+            <Timer.Minutes/> 
+            :
+          </div>
+          <div className="timer"> 
+            <Timer.Seconds/> 
+          </div>
+        </div>
+      )}
+    </Timer>
+  )
 }
