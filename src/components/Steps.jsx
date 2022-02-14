@@ -39,7 +39,7 @@ export default function Edition(props) {
             Click the button above to register your address for minting
           </li>
           <li className="mb">
-            Send 1 LocoNutz + 1 CocoLoco in a SINGLE transaction to your submitted address.
+            Send 1 LocoNutz + 1 CocoLoco in a SINGLE transaction to your submitted address (from the same wallet!).
           </li> 
           <li className="mb">
             The NFTs can only be used once - you can send multiple transactions.
