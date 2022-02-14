@@ -36,16 +36,7 @@ export default function Edition(props) {
       <div style={{ marginLeft: !phone ? "12.4em" : "0em"}}> 
         <ul className="updateText">
           <li className="mb">
-            Click the button above to register your address for minting
-          </li>
-          <li className="mb">
-            Send 1 LocoNutz + 1 CocoLoco in a SINGLE transaction to your submitted address (from the same wallet!).
-          </li> 
-          <li className="mb">
-            The NFTs can only be used once - you can send multiple transactions.
-          </li>
-          <li className="mb">
-            Crazy Island NFTs will be minted and delivered to you on Feb 14th.
+            Our Policy ID: 97a94467c176d60cc97cb1eb93e078c2c7a7626d01079c36659136c2
           </li>
         </ul>
       </div> 
