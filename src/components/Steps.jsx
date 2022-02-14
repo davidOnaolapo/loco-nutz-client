@@ -31,13 +31,13 @@ export default function Edition(props) {
   return (    
     <div style={{display:"flex", flexDirection:"column", alignItems:"center", marginTop:"2em"}} id="updates" data-aos= "fade-left" data-aos-delay="600">
       <div  className={phone ? "titlePhone" : "title"}> 
-        Steps to Mint Your Crazy Island NFTs
+      Our Policy ID: 97a94467c176d60cc97cb1eb93e078c2c7a7626d01079c36659136c2
       </div>
       <div style={{ marginLeft: !phone ? "12.4em" : "0em"}}> 
         <ul className="updateText">
-          <li className="mb">
-            Our Policy ID: 97a94467c176d60cc97cb1eb93e078c2c7a7626d01079c36659136c2
-          </li>
+          {/* <li className="mb">
+            
+          </li> */}
         </ul>
       </div> 
     </div>     
